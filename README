@@ -1,0 +1,40 @@
+参考微信的官方文档:
+https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=9_16&index=10
+
+1,获取openid和session_key
+    -obtain_openid_session_key.py
+
+2,获取access_token
+    -obtain_access_token.py
+
+3,产生小程序的二维码
+    -produce_qr_code.py
+
+4,
+    -统一下单
+        unified_order=UnifiedOrder(appid,appsecret)
+        unified_order.pay_order(...)
+
+    -查询订单
+        unified_order=UnifiedOrder(appid,appsecret)
+        unified_order.order_query(...)
+
+    -关闭订单
+        unified_order=UnifiedOrder(appid,appsecret)
+        unified_order.close_order(...)
+
+    -申请退款
+        unified_order=UnifiedOrder(appid,appsecret)
+        unified_order.refund_pay(...)
+
+        PS:返回的数据是加密的,需要解密才能获取详细信息
+        解密需要用到:
+            wx.utils.py文件中decrypt_wx_refund_data
+
+        注意:这个借口需要证书
+
+    -查询退款
+        unified_order=UnifiedOrder(appid,appsecret)
+        unified_order.refund_query(...)
+
+
